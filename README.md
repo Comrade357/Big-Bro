@@ -2,2806 +2,1694 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080706">
-
-<title>For Bimal Bhai | The Golden Celebration</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --black: #080706;
-  --black2: #100e0b;
-  --gold: #d8b56a;
-  --gold2: #f8e7b0;
-  --gold3: #92703a;
-  --white: #f8f1e5;
-  --muted: #aaa092;
-  --line: #4b3a20;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: "DM Sans", sans-serif;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% 0%, #8a621c18, transparent 55%),
-    radial-gradient(ellipse at 100% 50%, #d8b56a08, transparent 40%),
-    radial-gradient(ellipse at 0% 100%, #8a621c10, transparent 40%);
-}
-
-button, input, textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-.serif {
-  font-family: "Cormorant Garamond", serif;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-.gold-text {
-  background: linear-gradient(110deg, #b58b42, #fff0be, #d8b56a, #fff0be);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: goldShine 6s linear infinite;
-}
-
-@keyframes goldShine {
-  to {
-    background-position: 200% center;
-  }
-}
-
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-section {
-  padding: 100px 22px;
-  position: relative;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.eyebrow {
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-
-.section-heading h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(38px, 8vw, 72px);
-  font-weight: 400;
-  line-height: 1.05;
-}
-
-.section-heading p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.9;
-  max-width: 650px;
-  margin: 15px auto 0;
-}
-
-.gold-line {
-  height: 1px;
-  width: 80px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 25px auto;
-}
-
-.gold-button {
-  display: inline-block;
-  padding: 15px 25px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  background: transparent;
-  font-size: 10px;
-  letter-spacing: 3px;
-  transition: .4s;
-}
-
-.gold-button:hover {
-  color: #080706;
-  background: var(--gold);
-  box-shadow: 0 0 30px #d8b56a30;
-}
-
-.gold-button.filled {
-  background: var(--gold);
-  color: #080706;
-}
-
-.gold-button:disabled {
-  opacity: .35;
-  cursor: not-allowed;
-}
-
-/* ==================================
-   FLOATING STARS, HEARTS & SPARKLES
-================================== */
-
-#magic-layer {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 20;
-}
-
-.magic {
-  position: absolute;
-  bottom: -60px;
-  opacity: 0;
-  user-select: none;
-  animation: magicFloat linear infinite;
-  filter: drop-shadow(0 0 8px #d8b56a60);
-}
-
-@keyframes magicFloat {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(.6);
-    opacity: 0;
-  }
-
-  15% {
-    opacity: .8;
-  }
-
-  80% {
-    opacity: .6;
-  }
-
-  100% {
-    transform: translate3d(40px, -115vh, 0) rotate(360deg) scale(1.3);
-    opacity: 0;
-  }
-}
-
-/* EXTRA CURSOR SPARKLES */
-
-.cursor-sparkle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 99;
-  color: var(--gold2);
-  animation: cursorSparkle 1s ease-out forwards;
-}
-
-@keyframes cursorSparkle {
-  0% {
-    opacity: 1;
-    transform: scale(.3) rotate(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.5) rotate(90deg) translateY(-25px);
-  }
-}
-
-/* ==================================
-   NAVIGATION
-================================== */
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 50;
-  padding: 15px 20px;
-  background: #080706d9;
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid #d8b56a1a;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.nav-brand {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 25px;
-  color: var(--gold);
-  white-space: nowrap;
-}
-
-.nav-links {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-}
-
-.nav-links a {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: #c6bcac;
-  transition: .3s;
-}
-
-.nav-links a:hover {
-  color: var(--gold);
-}
-
-.nav-music {
-  border: 1px solid var(--gold3);
-  background: transparent;
-  color: var(--gold);
-  padding: 9px 12px;
-  font-size: 10px;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
-@media(max-width: 750px) {
-  .nav-links {
-    display: none;
-  }
-
-  .navbar {
-    padding: 12px 16px;
-  }
-}
-
-/* ==================================
-   HERO
-================================== */
-
-#hero {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 100px;
-  overflow: hidden;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-}
-
-.hero-small {
-  font-size: 10px;
-  color: var(--gold);
-  letter-spacing: 8px;
-  margin-bottom: 35px;
-  animation: reveal 1.5s ease both;
-}
-
-.hero-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(60px, 13vw, 145px);
-  line-height: .82;
-  font-weight: 400;
-  animation: reveal 1.5s ease both;
-}
-
-.hero-title span {
-  display: block;
-  font-style: italic;
-  margin-top: 20px;
-}
-
-.hero-subtitle {
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: #c6bba9;
-  line-height: 2;
-  margin-top: 35px;
-}
-
-.hero-date {
-  font-size: 11px;
-  letter-spacing: 6px;
-  color: var(--gold);
-  margin-top: 35px;
-}
-
-.hero-buttons {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.hero-orbit {
-  position: absolute;
-  width: min(80vw, 600px);
-  aspect-ratio: 1;
-  border: 1px solid #d8b56a12;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: orbitRotate 45s linear infinite;
-}
-
-.hero-orbit::before {
-  content: "✦";
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  color: var(--gold);
-  font-size: 22px;
-}
-
-.hero-orbit::after {
-  content: "✧";
-  position: absolute;
-  bottom: 8%;
-  right: 10%;
-  color: var(--gold2);
-  font-size: 18px;
-}
-
-@keyframes orbitRotate {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-    filter: blur(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-.hero-corner {
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  border: solid var(--gold3);
-  opacity: .5;
-}
-
-.hero-corner.tl {
-  top: 100px;
-  left: 25px;
-  border-width: 1px 0 0 1px;
-}
-
-.hero-corner.tr {
-  top: 100px;
-  right: 25px;
-  border-width: 1px 1px 0 0;
-}
-
-.hero-corner.bl {
-  bottom: 25px;
-  left: 25px;
-  border-width: 0 0 1px 1px;
-}
-
-.hero-corner.br {
-  bottom: 25px;
-  right: 25px;
-  border-width: 0 1px 1px 0;
-}
-
-/* ==================================
-   COUNTDOWN
-================================== */
-
-.countdown-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  max-width: 700px;
-  margin: 40px auto;
-}
-
-.time-box {
-  padding: 25px 10px;
-  border: 1px solid var(--line);
-  background: linear-gradient(145deg, #19150e, #080706);
-  box-shadow: inset 0 0 25px #d8b56a05;
-}
-
-.time-box strong {
-  display: block;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(35px, 8vw, 65px);
-  font-weight: 400;
-  color: var(--gold2);
-}
-
-.time-box span {
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: #a48b5c;
-}
-
-#countdown-message {
-  text-align: center;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 26px;
-  color: var(--gold);
-}
-
-/* ==================================
-   MUSIC
-================================== */
-
-.music-card {
-  max-width: 750px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 25px;
-  border: 1px solid #5a4525;
-  background: linear-gradient(135deg, #19150e, #090807);
-}
-
-.music-disc {
-  width: 65px;
-  height: 65px;
-  flex-shrink: 0;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  color: var(--gold);
-  background: radial-gradient(circle, #3a2b15, #080706);
-}
-
-.music-disc.playing {
-  animation: rotateDisc 5s linear infinite;
-}
-
-@keyframes rotateDisc {
-  to { transform: rotate(360deg); }
-}
-
-.music-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.music-info h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 27px;
-  font-weight: 500;
-}
-
-.music-info p {
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.7;
-  margin-top: 5px;
-}
-
-.music-button {
-  padding: 12px 18px;
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold3);
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-.music-button:hover {
-  background: var(--gold);
-  color: #000;
-}
-
-.music-progress {
-  max-width: 750px;
-  margin: 15px auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.music-progress input {
-  flex: 1;
-  accent-color: var(--gold);
-}
-
-.music-progress span {
-  color: var(--muted);
-  font-size: 10px;
-}
-
-.music-error {
-  max-width: 750px;
-  margin: 15px auto;
-  text-align: center;
-  color: #e8a69a;
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-.music-error a {
-  color: var(--gold);
-}
-
-/* ==================================
-   GIFTS
-================================== */
-
-.gifts-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.gift-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 190px;
-  padding: 22px 10px;
-  border: 1px solid #40321d;
-  background: linear-gradient(150deg, #19150e, #090807);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
-  transition: .4s;
-}
-
-.gift-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 70%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, #d8b56a15, transparent);
-  transition: .6s;
-}
-
-.gift-card:hover::before {
-  left: 130%;
-}
-
-.gift-card:hover {
-  transform: translateY(-7px);
-  border-color: var(--gold);
-  box-shadow: 0 15px 40px #d8b56a10;
-}
-
-.gift-card.opened {
-  border-color: var(--gold);
-  background: linear-gradient(150deg, #292011, #100e09);
-}
-
-.gift-number {
-  color: var(--gold3);
-  font-size: 9px;
-  letter-spacing: 3px;
-}
-
-.gift-icon {
-  font-size: 40px;
-  transition: .4s;
-}
-
-.gift-card:hover .gift-icon {
-  transform: scale(1.15) rotate(-5deg);
-}
-
-.gift-card h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.gift-card p {
-  color: var(--muted);
-  font-size: 10px;
-  line-height: 1.6;
-}
-
-.gift-progress {
-  margin-top: 35px;
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--gold);
-}
-
-.progress-track {
-  height: 2px;
-  max-width: 350px;
-  margin: 15px auto;
-  background: #292319;
-}
-
-.progress-fill {
-  width: 0;
-  height: 100%;
-  background: var(--gold);
-  transition: width .5s;
-}
-
-/* ==================================
-   MODAL
-================================== */
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: #000000e8;
-  backdrop-filter: blur(12px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 100;
-}
-
-.modal.show {
-  display: flex;
-  animation: fadeIn .3s;
-}
-
-.modal-content {
-  position: relative;
-  max-width: 550px;
-  width: 100%;
-  padding: 45px 30px;
-  text-align: center;
-  border: 1px solid var(--gold3);
-  background: linear-gradient(145deg, #1b150c, #080706);
-  animation: modalUp .4s;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes modalUp {
-  from {
-    transform: translateY(25px) scale(.96);
-  }
-
-  to {
-    transform: translateY(0) scale(1);
-  }
-}
-
-.modal-icon {
-  font-size: 55px;
-  margin-bottom: 20px;
-}
-
-.modal-content h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  font-weight: 500;
-  color: var(--gold2);
-}
-
-.modal-content p {
-  color: #c5bcae;
-  font-size: 14px;
-  line-height: 1.9;
-  margin-top: 20px;
-  white-space: pre-line;
-}
-
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 18px;
-  background: none;
-  border: none;
-  color: var(--gold);
-  font-size: 25px;
-}
-
-/* ==================================
-   PHOTO GALLERY
-================================== */
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.photo-frame {
-  padding: 8px;
-  overflow: hidden;
-  border: 1px solid #4d3c20;
-  background: #111;
-  transition: .4s;
-}
-
-.photo-frame:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
-
-.photo-frame img {
-  width: 100%;
-  aspect-ratio: 1 / 1.15;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(15%);
-  transition: .5s;
-}
-
-.photo-frame:hover img {
-  filter: grayscale(0%);
-  transform: scale(1.04);
-}
-
-.photo-frame p {
-  font-family: "Cormorant Garamond", serif;
-  color: var(--gold);
-  text-align: center;
-  font-size: 19px;
-  padding: 12px 4px 5px;
-}
-
-/* ==================================
-   MEMORY TIMELINE
-================================== */
-
-.timeline {
-  max-width: 750px;
-  margin: auto;
-  position: relative;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 22px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(transparent, var(--gold3), transparent);
-}
-
-.timeline-item {
-  position: relative;
-  padding: 0 0 45px 60px;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 15px;
-  top: 5px;
-  width: 15px;
-  height: 15px;
-  background: var(--gold);
-  border-radius: 50%;
-  box-shadow: 0 0 20px #d8b56a50;
-}
-
-.timeline-item h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 27px;
-  color: var(--gold);
-  font-weight: 500;
-}
-
-.timeline-item p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.9;
-  margin-top: 10px;
-}
-
-/* ==================================
-   LETTER
-================================== */
-
-.letter {
-  max-width: 800px;
-  margin: auto;
-  padding: 45px;
-  border: 1px solid #4b3a20;
-  background: radial-gradient(ellipse at top, #4a351318, transparent 60%), #0c0b09;
-  box-shadow: 0 20px 60px #0005;
-}
-
-.letter h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 34px;
-  color: var(--gold);
-  font-weight: 500;
-  margin-bottom: 25px;
-}
-
-.letter p {
-  color: #c8c0b4;
-  font-size: 14px;
-  line-height: 2;
-  margin-bottom: 20px;
-}
-
-.signature {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-  font-style: italic;
-  color: var(--gold);
-  margin-top: 30px;
-}
-
-/* ==================================
-   CAKE
-================================== */
-
-.cake-area {
-  text-align: center;
-}
-
-.cake {
-  position: relative;
-  width: 190px;
-  height: 170px;
-  margin: 65px auto 35px;
-  filter: drop-shadow(0 15px 20px #000);
-}
-
-.cake-base {
-  position: absolute;
-  bottom: 0;
-  width: 190px;
-  height: 90px;
-  background: linear-gradient(90deg, #79502b, #c89553, #80502a);
-  border-radius: 8px 8px 15px 15px;
-}
-
-.cake-base::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 25px;
-  border-radius: 50%;
-  background: #f0d5a3;
-}
-
-.cake-top {
-  position: absolute;
-  bottom: 85px;
-  left: 15px;
-  width: 160px;
-  height: 45px;
-  background: linear-gradient(90deg, #8d592f, #e4bb78, #956033);
-  border-radius: 50%;
-}
-
-.candle {
-  position: absolute;
-  width: 9px;
-  height: 38px;
-  bottom: 125px;
-  left: 90px;
-  background: linear-gradient(90deg, #f4dfab, #a77d35);
-  z-index: 3;
-}
-
-.flame {
-  position: absolute;
-  width: 15px;
-  height: 24px;
-  background: radial-gradient(ellipse at bottom, #fff8bc, #ffc34c 45%, #ff6c16);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  bottom: 158px;
-  left: 87px;
-  filter: drop-shadow(0 0 12px #ff9b25);
-  animation: flame 1s ease-in-out infinite alternate;
-}
-
-@keyframes flame {
-  from { transform: rotate(-45deg) scale(.9); }
-  to { transform: rotate(-40deg) scale(1.1); }
-}
-
-#wish-message {
-  color: var(--gold);
-  margin-top: 25px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 25px;
-}
-
-/* ==================================
-   WISH GENERATOR
-================================== */
-
-.wish-box {
-  max-width: 750px;
-  margin: auto;
-  padding: 40px 25px;
-  text-align: center;
-  border: 1px solid var(--line);
-  background: linear-gradient(145deg, #19150e, #090807);
-}
-
-#wish-text {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(24px, 5vw, 37px);
-  color: var(--gold2);
-  line-height: 1.5;
-}
-
-/* ==================================
-   FINAL GIFT
-================================== */
-
-.final-gift {
-  max-width: 750px;
-  margin: auto;
-  padding: 60px 25px;
-  border: 1px solid #68502a;
-  background: radial-gradient(ellipse at center, #33220f40, transparent 70%);
-  text-align: center;
-}
-
-.final-gift .big-icon {
-  font-size: 75px;
-  margin-bottom: 25px;
-  animation: giftPulse 3s ease-in-out infinite;
-}
-
-@keyframes giftPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-}
-
-.final-gift h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(40px, 9vw, 80px);
-  font-weight: 400;
-  color: var(--gold2);
-}
-
-.final-gift p {
-  color: #c4b9a6;
-  font-size: 13px;
-  line-height: 2;
-  margin-top: 20px;
-}
-
-#final-message {
-  display: none;
-  margin-top: 35px;
-  font-family: "Cormorant Garamond", serif;
-  color: var(--gold2);
-  font-size: 30px;
-  line-height: 1.7;
-}
-
-footer {
-  text-align: center;
-  padding: 45px 20px;
-  border-top: 1px solid #302719;
-  color: #82786a;
-  font-size: 10px;
-  letter-spacing: 3px;
-  line-height: 2.2;
-}
-
-footer span {
-  color: var(--gold);
-}
-
-/* ==================================
-   MOBILE
-================================== */
-
-@media(max-width: 750px) {
-  .gifts-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .gift-card {
-    min-height: 160px;
-    padding: 16px 8px;
-  }
-
-  .gift-icon {
-    font-size: 34px;
-  }
-
-  .gift-card h3 {
-    font-size: 17px;
-  }
-
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .letter {
-    padding: 30px 22px;
-  }
-
-  section {
-    padding: 75px 18px;
-  }
-}
-
-@media(max-width: 420px) {
-  .gifts-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .countdown-grid {
-    gap: 6px;
-  }
-
-  .time-box {
-    padding: 20px 4px;
-  }
-
-  .time-box span {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-
-  .music-card {
-    padding: 15px;
-    gap: 12px;
-  }
-
-  .music-disc {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
-  }
-
-  .music-info h3 {
-    font-size: 21px;
-  }
-
-  .music-button {
-    padding: 10px;
-    min-width: 65px;
-  }
-
-  .modal-content {
-    padding: 40px 20px;
-  }
-
-  .modal-content h2 {
-    font-size: 34px;
-  }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Bimal Bhai ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #080808;
+      --black-soft: #111111;
+      --gold: #d8b56d;
+      --gold-light: #f7e5b5;
+      --gold-dark: #8e6b2d;
+      --white: #f7f3ea;
+      --muted: #b6ad9d;
+      --glass: rgba(255, 255, 255, 0.045);
+      --border: rgba(216, 181, 109, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(216,181,109,0.08), transparent 30%),
+        radial-gradient(circle at 80% 50%, rgba(216,181,109,0.05), transparent 35%),
+        var(--black);
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+    }
+
+    main, section, footer, header {
+      position: relative;
+      z-index: 1;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 500;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 650px;
+      line-height: 1.8;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 25px auto;
+    }
+
+    .gold-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, rgba(216,181,109,0.18), rgba(216,181,109,0.04));
+      color: var(--gold-light);
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+    }
+
+    .gold-button:hover {
+      background: var(--gold);
+      color: #080808;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(216,181,109,0.18);
+    }
+
+    /* Floating effects */
+
+    #effects {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -30px;
+      opacity: 0;
+      animation: floatUp linear forwards;
+      text-shadow: 0 0 12px rgba(216,181,109,0.5);
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.65;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Music player */
+
+    .music-player {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: rgba(8,8,8,0.82);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .music-icon {
+      color: var(--gold);
+      font-size: 1.1rem;
+      animation: musicPulse 2s infinite;
+    }
+
+    @keyframes musicPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .music-info strong {
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+    }
+
+    .music-info span {
+      font-size: 0.58rem;
+      color: var(--muted);
+    }
+
+    .music-toggle {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--gold-dark);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100vh;
+      padding: 110px 20px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      max-width: 100vw;
+      border-radius: 50%;
+      border: 1px solid rgba(216,181,109,0.08);
+      box-shadow:
+        0 0 0 35px rgba(216,181,109,0.018),
+        0 0 0 80px rgba(216,181,109,0.012);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 950px;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .hero h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(4.2rem, 13vw, 10rem);
+      font-weight: 400;
+      line-height: 0.95;
+      color: var(--gold-light);
+      text-shadow: 0 0 40px rgba(216,181,109,0.18);
+    }
+
+    .hero h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.4rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 30px auto;
+      line-height: 1.9;
+      font-size: 0.9rem;
+    }
+
+    .hero-date {
+      color: var(--gold);
+      letter-spacing: 0.35em;
+      font-size: 0.8rem;
+      margin: 25px 0 35px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold-dark);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      animation: scrollPulse 2s infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
+      50% { opacity: 1; transform: translate(-50%, 7px); }
+    }
+
+    /* Countdown */
+
+    .countdown-section {
+      padding: 90px 20px;
+      border-top: 1px solid rgba(216,181,109,0.1);
+      border-bottom: 1px solid rgba(216,181,109,0.1);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 45px auto 25px;
+    }
+
+    .time-box {
+      width: 125px;
+      padding: 25px 15px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(216,181,109,0.08), rgba(255,255,255,0.015));
+      border-radius: 8px;
+    }
+
+    .time-box strong {
+      display: block;
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+
+    .time-box span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    #countdownMessage {
+      color: var(--gold);
+      margin-top: 25px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+    }
+
+    /* Photo gallery */
+
+    .gallery-section {
+      padding: 110px 20px;
+    }
+
+    .gallery-grid {
+      max-width: 1100px;
+      margin: 55px auto 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #17130d;
+      min-height: 260px;
+    }
+
+    .gallery-card:nth-child(1) {
+      grid-column: span 7;
+      min-height: 430px;
+    }
+
+    .gallery-card:nth-child(2) {
+      grid-column: span 5;
+      min-height: 430px;
+    }
+
+    .gallery-card:nth-child(3),
+    .gallery-card:nth-child(4),
+    .gallery-card:nth-child(5) {
+      grid-column: span 4;
+      min-height: 300px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.8);
+      transition: transform 0.7s ease, filter 0.7s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.06);
+      filter: saturate(1.1);
+    }
+
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.4), transparent 45%);
+      pointer-events: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      font-style: italic;
+    }
+
+    /* Letter */
+
+    .letter-section {
+      padding: 110px 20px;
+      background: linear-gradient(180deg, rgba(216,181,109,0.025), transparent);
+    }
+
+    .letter-card {
+      max-width: 850px;
+      margin: 50px auto 0;
+      padding: clamp(25px, 6vw, 65px);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .letter-card::before {
+      content: "❝";
+      position: absolute;
+      top: 10px;
+      left: 25px;
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: rgba(216,181,109,0.15);
+    }
+
+    .letter-card p {
+      color: #d6cbbb;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .letter-signature {
+      color: var(--gold);
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+      margin-top: 30px;
+      text-align: right;
+    }
+
+    /* Timeline */
+
+    .timeline-section {
+      padding: 110px 20px;
+    }
+
+    .timeline {
+      max-width: 850px;
+      margin: 60px auto 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(transparent, var(--gold-dark), var(--gold), transparent);
+    }
+
+    .timeline-item {
+      width: 50%;
+      padding: 20px 35px;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-item::after {
+      content: "✦";
+      position: absolute;
+      top: 30px;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -8px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -8px;
+    }
+
+    .timeline-item h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--gold-light);
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.85rem;
+    }
+
+    /* Gifts */
+
+    .gifts-section {
+      padding: 110px 20px;
+      background: rgba(255,255,255,0.015);
+    }
+
+    .gift-progress {
+      max-width: 500px;
+      margin: 35px auto 15px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.72rem;
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      height: 5px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      transition: width 0.5s ease;
+    }
+
+    .gift-grid {
+      max-width: 1100px;
+      margin: 50px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .gift-card {
+      position: relative;
+      min-height: 210px;
+      padding: 25px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(216,181,109,0.07), rgba(255,255,255,0.015));
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .gift-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 15px 35px rgba(216,181,109,0.08);
+    }
+
+    .gift-card.opened {
+      background: linear-gradient(145deg, rgba(216,181,109,0.13), rgba(255,255,255,0.025));
+      border-color: rgba(216,181,109,0.6);
+    }
+
+    .gift-icon {
+      font-size: 2.8rem;
+      filter: drop-shadow(0 0 12px rgba(216,181,109,0.2));
+    }
+
+    .gift-card h3 {
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .gift-card p {
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.6;
+    }
+
+    .gift-card .gift-status {
+      color: var(--gold);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Gift modal */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 600px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 45px 30px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at top, rgba(216,181,109,0.12), transparent 50%),
+        #0c0b09;
+      text-align: center;
+      position: relative;
+      animation: modalEnter 0.35s ease;
+    }
+
+    @keyframes modalEnter {
+      from { opacity: 0; transform: translateY(20px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      width: 35px;
+      height: 35px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .modal-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-content h2 {
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .modal-content p {
+      color: #d6cbbb;
+      line-height: 1.9;
+      font-size: 0.95rem;
+    }
+
+    /* Cake */
+
+    .cake-section {
+      padding: 110px 20px;
+    }
+
+    .cake {
+      width: 220px;
+      height: 180px;
+      margin: 60px auto 35px;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .cake:hover {
+      transform: scale(1.04);
+    }
+
+    .cake-base {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      width: 200px;
+      height: 100px;
+      background: linear-gradient(135deg, #8e6b2d, #d8b56d, #8e6b2d);
+      border-radius: 8px 8px 15px 15px;
+      box-shadow: 0 15px 40px rgba(216,181,109,0.12);
+    }
+
+    .cake-base::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: rgba(255,255,255,0.22);
+    }
+
+    .cake-top {
+      position: absolute;
+      bottom: 90px;
+      left: 25px;
+      width: 170px;
+      height: 50px;
+      background: linear-gradient(135deg, #f3dfb0, #b78a42);
+      border-radius: 50%;
+      border: 2px solid #d8b56d;
+    }
+
+    .candle {
+      position: absolute;
+      bottom: 135px;
+      left: 105px;
+      width: 12px;
+      height: 45px;
+      background: repeating-linear-gradient(
+        45deg,
+        #f5e8c8 0 5px,
+        #b78a42 5px 10px
+      );
+      border-radius: 3px;
+    }
+
+    .flame {
+      position: absolute;
+      bottom: 177px;
+      left: 102px;
+      width: 18px;
+      height: 28px;
+      background: radial-gradient(ellipse at bottom, #fff6b5, #f7a23b 60%, transparent 75%);
+      border-radius: 50% 50% 40% 40%;
+      animation: flameDance 0.7s infinite alternate;
+      filter: drop-shadow(0 0 12px #f7a23b);
+    }
+
+    @keyframes flameDance {
+      from { transform: rotate(-5deg) scale(0.95); }
+      to { transform: rotate(5deg) scale(1.08); }
+    }
+
+    .cake.blown .flame {
+      display: none;
+    }
+
+    .cake-message {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      min-height: 35px;
+      margin: 20px auto;
+    }
+
+    /* Final surprise */
+
+    .final-section {
+      padding: 110px 20px 130px;
+      border-top: 1px solid rgba(216,181,109,0.1);
+    }
+
+    .final-lock {
+      max-width: 700px;
+      margin: 45px auto 0;
+      padding: 50px 25px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.025);
+      text-align: center;
+    }
+
+    .lock-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .final-lock h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      color: var(--gold-light);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .final-lock p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    #finalReveal {
+      display: none;
+      margin-top: 35px;
+      padding: 35px;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      background: rgba(216,181,109,0.06);
+    }
+
+    #finalReveal.show {
+      display: block;
+      animation: modalEnter 0.5s ease;
+    }
+
+    #finalReveal h2 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--gold-light);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    #finalReveal p {
+      font-family: "Cormorant Garamond", serif;
+      color: #e4d8c3;
+      font-size: 1.3rem;
+      line-height: 1.9;
+    }
+
+    footer {
+      padding: 30px 20px;
+      border-top: 1px solid rgba(216,181,109,0.1);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+      .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-card:nth-child(1),
+      .gallery-card:nth-child(2) {
+        grid-column: span 6;
+        min-height: 300px;
+      }
+
+      .gallery-card:nth-child(3),
+      .gallery-card:nth-child(4),
+      .gallery-card:nth-child(5) {
+        grid-column: span 4;
+        min-height: 230px;
+      }
+
+      .time-box {
+        width: 105px;
+      }
+
+      .time-box strong {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .music-player {
+        top: 10px;
+        right: 10px;
+        padding: 8px 11px;
+        gap: 8px;
+      }
+
+      .music-info strong {
+        font-size: 0.62rem;
+      }
+
+      .music-info span {
+        font-size: 0.52rem;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      .hero-kicker {
+        letter-spacing: 0.25em;
+      }
+
+      .countdown {
+        gap: 9px;
+      }
+
+      .time-box {
+        width: calc(50% - 9px);
+        max-width: 140px;
+        padding: 20px 10px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-card:nth-child(1),
+      .gallery-card:nth-child(2),
+      .gallery-card:nth-child(3),
+      .gallery-card:nth-child(4),
+      .gallery-card:nth-child(5) {
+        grid-column: span 1;
+        min-height: 230px;
+      }
+
+      .gallery-card:nth-child(1) {
+        grid-column: span 2;
+        min-height: 350px;
+      }
+
+      .gallery-card img {
+        min-height: inherit;
+      }
+
+      .timeline::before {
+        left: 12px;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding: 20px 20px 20px 40px;
+      }
+
+      .timeline-item:nth-child(odd)::after,
+      .timeline-item:nth-child(even)::after {
+        left: 4px;
+        right: auto;
+      }
+
+      .gift-grid {
+        gap: 12px;
+      }
+
+      .gift-card {
+        min-height: 190px;
+        padding: 20px 10px;
+      }
+
+      .gift-icon {
+        font-size: 2.3rem;
+      }
+
+      .modal-content {
+        padding: 45px 22px 30px;
+      }
+
+      .modal-content h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- FLOATING MAGIC -->
-<div id="magic-layer"></div>
+  <div id="effects" aria-hidden="true"></div>
 
-<!-- NAVIGATION -->
-<nav class="navbar">
-
-  <a href="#hero" class="nav-brand">
-    Bimal <span class="gold">✦</span>
-  </a>
-
-  <div class="nav-links">
-    <a href="#countdown">COUNTDOWN</a>
-    <a href="#music">MUSIC</a>
-    <a href="#gifts">GIFTS</a>
-    <a href="#memories">MEMORIES</a>
-    <a href="#letter">LETTER</a>
-    <a href="#final">FINAL GIFT</a>
+  <!-- Music: the only song on the website -->
+  <div class="music-player">
+    <div class="music-icon">♫</div>
+    <div class="music-info">
+      <strong>OUR SPECIAL SONG</strong>
+      <span>Song22.mp3</span>
+    </div>
+    <button class="music-toggle" id="musicToggle" aria-label="Play or pause music">▶</button>
   </div>
 
-  <button class="nav-music" onclick="toggleMusic()">
-    ♫ MUSIC
-  </button>
+  <audio id="birthdaySong" src="Song22.mp3" loop preload="auto"></audio>
 
-</nav>
+  <main>
 
-<!-- HERO -->
-<section id="hero">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="hero-kicker">A little world made just for you</p>
 
-  <div class="hero-corner tl"></div>
-  <div class="hero-corner tr"></div>
-  <div class="hero-corner bl"></div>
-  <div class="hero-corner br"></div>
+        <h1>Happy Birthday</h1>
 
-  <div class="hero-orbit"></div>
+        <h2>Dear <span class="gold">Bimal Bhai</span></h2>
 
-  <div class="hero-content">
+        <div class="gold-line"></div>
 
-    <div class="hero-small">
-      A CELEBRATION OF SOMEONE EXTRAORDINARY
-    </div>
-
-    <h1 class="hero-title">
-      For My
-      <span class="gold-text">Big Brother</span>
-      <span class="gold-text">Bimal</span>
-    </h1>
-
-    <p class="hero-subtitle">
-      A LITTLE SURPRISE FROM YOUR LITTLE BROTHER<br>
-      MADE WITH ENDLESS LOVE
-    </p>
-
-    <div class="hero-date">
-      NOVEMBER 05 · 2026
-    </div>
-
-    <div class="hero-buttons">
-
-      <a href="#countdown" class="gold-button">
-        BEGIN THE JOURNEY ✦
-      </a>
-
-      <a href="#gifts" class="gold-button">
-        EXPLORE YOUR GIFTS
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- COUNTDOWN -->
-<section id="countdown">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        The Moment Is Coming
-      </div>
-
-      <h2>
-        Counting Down To<br>
-        <span class="gold-text">Your Special Day</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        Every second brings us closer to celebrating someone
-        who means the world to me.
-      </p>
-
-    </div>
-
-    <div class="countdown-grid">
-
-      <div class="time-box">
-        <strong id="days">00</strong>
-        <span>DAYS</span>
-      </div>
-
-      <div class="time-box">
-        <strong id="hours">00</strong>
-        <span>HOURS</span>
-      </div>
-
-      <div class="time-box">
-        <strong id="minutes">00</strong>
-        <span>MINUTES</span>
-      </div>
-
-      <div class="time-box">
-        <strong id="seconds">00</strong>
-        <span>SECONDS</span>
-      </div>
-
-    </div>
-
-    <div id="countdown-message"></div>
-
-  </div>
-
-</section>
-
-<!-- MUSIC -->
-<section id="music">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        A Song For Every Moment
-      </div>
-
-      <h2>
-        Music For <span class="gold-text">Bimal</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p id="music-description">
-        A special melody while we wait for your birthday.
-      </p>
-
-    </div>
-
-    <div class="music-card">
-
-      <div class="music-disc" id="music-disc">
-        ♫
-      </div>
-
-      <div class="music-info">
-
-        <h3 id="music-title">
-          The Countdown Song
-        </h3>
-
-        <p id="music-status">
-          Your birthday surprise is getting closer.
+        <p class="hero-description">
+          For the person who has been more than a brother —
+          a guide, a protector, a friend, and one of the most
+          precious parts of my life.
         </p>
 
+        <p class="hero-date">05 · 11 · 2026</p>
+
+        <a href="#countdown" class="gold-button">Begin the surprise ✦</a>
       </div>
 
-      <button
-        class="music-button"
-        id="music-button"
-        onclick="toggleMusic()">
+      <div class="scroll-indicator">Scroll to explore ↓</div>
+    </section>
 
-        PLAY
-
-      </button>
-
-    </div>
-
-    <div class="music-progress">
-
-      <span id="music-current">0:00</span>
-
-      <input
-        type="range"
-        id="music-seek"
-        min="0"
-        max="100"
-        value="0"
-        aria-label="Music progress">
-
-      <span id="music-duration">0:00</span>
-
-    </div>
-
-    <div class="music-error" id="music-error"></div>
-
-    <!-- YOUR EXACT MP3 FILES -->
-
-    <audio id="song-before" loop preload="metadata">
-      <source src="Song11.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio id="song-after" loop preload="metadata">
-      <source src="Song22.mp3" type="audio/mpeg">
-    </audio>
-
-  </div>
-
-</section>
-
-<!-- GIFTS -->
-<section id="gifts">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        Twelve Little Surprises
-      </div>
-
-      <h2>
-        Open Your <span class="gold-text">Gifts</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        Each gift holds a little piece of love, gratitude,
-        and memories. Open every gift to discover the surprises.
+    <!-- COUNTDOWN -->
+    <section class="countdown-section center" id="countdown">
+      <p class="eyebrow">The special day is approaching</p>
+      <h2 class="section-title">The Countdown</h2>
+      <p class="section-subtitle">
+        Every second brings us closer to celebrating someone truly special.
       </p>
 
-    </div>
-
-    <div class="gifts-grid" id="gifts-grid"></div>
-
-    <div class="gift-progress">
-
-      <span id="opened-count">0</span> / 12 GIFTS OPENED
-
-      <div class="progress-track">
-        <div class="progress-fill" id="progress-fill"></div>
+      <div class="countdown">
+        <div class="time-box">
+          <strong id="days">00</strong>
+          <span>Days</span>
+        </div>
+        <div class="time-box">
+          <strong id="hours">00</strong>
+          <span>Hours</span>
+        </div>
+        <div class="time-box">
+          <strong id="minutes">00</strong>
+          <span>Minutes</span>
+        </div>
+        <div class="time-box">
+          <strong id="seconds">00</strong>
+          <span>Seconds</span>
+        </div>
       </div>
 
-      <p style="color:#84745b;font-size:10px;letter-spacing:1px">
-        Open all 12 gifts to unlock the grand finale.
+      <p id="countdownMessage">A beautiful day is on its way ✨</p>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section center" id="gallery">
+      <p class="eyebrow">Moments worth keeping</p>
+      <h2 class="section-title">A Gallery of <span class="gold">Memories</span></h2>
+      <p class="section-subtitle">
+        Some moments become memories. Some people make those memories unforgettable.
       </p>
 
-    </div>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="Nana.jpg" alt="A special memory with Bimal" loading="lazy">
+          <div class="gallery-caption">A moment to remember</div>
+        </div>
 
-  </div>
+        <div class="gallery-card">
+          <img src="Nana2.jpg" alt="A beautiful memory" loading="lazy">
+          <div class="gallery-caption">Always together</div>
+        </div>
 
-</section>
+        <div class="gallery-card">
+          <img src="Nana3.jpg" alt="A precious memory" loading="lazy">
+          <div class="gallery-caption">The good old days</div>
+        </div>
 
-<!-- MEMORIES -->
-<section id="memories">
+        <div class="gallery-card">
+          <img src="Nana4.jpg" alt="A memory full of happiness" loading="lazy">
+          <div class="gallery-caption">Little moments</div>
+        </div>
 
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        Moments That Matter
+        <div class="gallery-card">
+          <img src="Nana5.jpg" alt="A memorable moment" loading="lazy">
+          <div class="gallery-caption">Forever special</div>
+        </div>
       </div>
+    </section>
 
-      <h2>
-        Our Little <span class="gold-text">Memories</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        Different moments. Different memories.
-        One beautiful bond.
+    <!-- LETTER -->
+    <section class="letter-section center" id="letter">
+      <p class="eyebrow">From my heart to yours</p>
+      <h2 class="section-title">A Letter for <span class="gold">You</span></h2>
+      <p class="section-subtitle">
+        Some feelings are too meaningful to fit into an ordinary birthday wish.
       </p>
 
-    </div>
-
-    <div class="photo-grid">
-
-      <div class="photo-frame">
-        <img src="Nana.jpg" alt="Memory with Bimal" loading="lazy">
-        <p>Our Beginning</p>
-      </div>
-
-      <div class="photo-frame">
-        <img src="Nana1.jpg" alt="A special memory" loading="lazy">
-        <p>Good Times</p>
-      </div>
-
-      <div class="photo-frame">
-        <img src="Nana2.jpg" alt="A happy moment" loading="lazy">
-        <p>Unforgettable</p>
-      </div>
-
-      <div class="photo-frame">
-        <img src="Nana3.jpg" alt="Brotherhood memories" loading="lazy">
-        <p>My Favourite</p>
-      </div>
-
-      <div class="photo-frame">
-        <img src="Nana4.jpg" alt="A special day together" loading="lazy">
-        <p>Always Together</p>
-      </div>
-
-      <div class="photo-frame">
-        <img src="Nana5.jpg" alt="A memory to cherish" loading="lazy">
-        <p>Forever Us</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- TIMELINE -->
-<section id="timeline">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        A Bond Beyond Words
-      </div>
-
-      <h2>
-        Our <span class="gold-text">Story</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        Some relationships don't need perfect words.
-        They just need a lifetime of memories.
-      </p>
-
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot"></div>
-
-        <h3>The Beginning</h3>
+      <div class="letter-card">
+        <p>Dear Bimal Bhai,</p>
 
         <p>
-          From the very beginning, you were someone I could
-          look up to. Having an elder brother like you has
-          always been a blessing.
+          On your special day, I just want to remind you how much you mean to me.
+          Having you as my big brother is one of the greatest blessings of my life.
         </p>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot"></div>
-
-        <h3>The Little Moments</h3>
 
         <p>
-          The laughs, the arguments, the jokes, the memories,
-          and all the little things that make our bond special.
+          Thank you for being someone I can look up to, someone whose presence
+          brings strength, and someone whose place in my life can never be replaced.
         </p>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot"></div>
-
-        <h3>The Person You Are</h3>
 
         <p>
-          As time passes, I continue to admire your strength,
-          your determination, and the person you are becoming.
+          I may not always say it, but I appreciate every little thing you do.
+          Your support, your care, your guidance, and even the little moments
+          we share mean more than words can explain.
         </p>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot"></div>
-
-        <h3>Forever Brothers</h3>
 
         <p>
-          No matter where life takes us, you will always be
-          my big brother, and I will always be your little brother.
+          May this new year of your life bring you peace, happiness, good health,
+          success, and everything your heart has been wishing for.
+          May every dream you carry become a beautiful reality.
         </p>
 
+        <p>
+          No matter how much life changes, one thing will always remain the same:
+          I will always be proud to call you my brother.
+        </p>
+
+        <p>
+          Happy Birthday, Bhai. Keep smiling, keep shining, and keep being
+          the wonderful person you are.
+        </p>
+
+        <div class="letter-signature">With love, always ❤️</div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section center" id="memories">
+      <p class="eyebrow">A journey of memories</p>
+      <h2 class="section-title">Our Little <span class="gold">Timeline</span></h2>
+      <p class="section-subtitle">
+        Not just years passing by — a collection of moments that made life special.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>The Beginning</h3>
+          <p>
+            The beginning of a bond that would become one of the most meaningful
+            parts of our lives.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Growing Together</h3>
+          <p>
+            Learning, laughing, making memories, and discovering that family
+            is one of life's greatest gifts.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Through Every Season</h3>
+          <p>
+            The good days, the difficult days, and all the little moments in between —
+            we keep moving forward.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Today & Always</h3>
+          <p>
+            Celebrating you today and wishing you countless more years of love,
+            laughter, and unforgettable memories.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIFTS -->
+    <section class="gifts-section center" id="gifts">
+      <p class="eyebrow">A collection of little surprises</p>
+      <h2 class="section-title">12 Gifts, <span class="gold">12 Wishes</span></h2>
+      <p class="section-subtitle">
+        Every gift holds a little message. Open all twelve to unlock the final surprise.
+      </p>
+
+      <div class="gift-progress">
+        <div class="progress-label">
+          <span>Gifts discovered</span>
+          <span id="giftCount">0 / 12</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
       </div>
 
-    </div>
+      <div class="gift-grid" id="giftGrid"></div>
+    </section>
 
-  </div>
-
-</section>
-
-<!-- LETTER -->
-<section id="letter">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        From My Heart
-      </div>
-
-      <h2>
-        A Letter To <span class="gold-text">Bimal Bhai</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-    </div>
-
-    <div class="letter">
-
-      <h3>Dear Bimal Bhai,</h3>
-
-      <p>
-        There are some people in life who make everything feel
-        a little easier, a little safer, and a lot more meaningful.
-        For me, you are one of those people.
+    <!-- CAKE -->
+    <section class="cake-section center" id="cakeSection">
+      <p class="eyebrow">Make a birthday wish</p>
+      <h2 class="section-title">A Cake Just <span class="gold">For You</span></h2>
+      <p class="section-subtitle">
+        Close your eyes, make a wish, and tap the cake to blow out the candle.
       </p>
 
-      <p>
-        Having you as my big brother is one of the greatest
-        blessings of my life. You have been more than just a brother.
-        You have been a friend, a guide, a source of strength,
-        and someone I can always look up to.
-      </p>
-
-      <p>
-        I may not always say it, and sometimes I may not even
-        show it, but I genuinely appreciate everything you do.
-        Your presence means more to me than words can explain.
-      </p>
-
-      <p>
-        On your birthday, I wish you endless happiness,
-        good health, peace of mind, success in everything you do,
-        and all the beautiful things this world has to offer.
-      </p>
-
-      <p>
-        No matter how much we grow, where life takes us,
-        or how busy our days become, one thing will never change:
-        I will always be your little brother, and you will
-        always be my big brother.
-      </p>
-
-      <p>
-        Thank you for being you.
-        Thank you for being my brother.
-        And thank you for being a part of my life.
-      </p>
-
-      <div class="signature">
-        With all my love,<br>
-        Your Little Brother ❤️
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BIRTHDAY WISH GENERATOR -->
-<section id="wishes">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        A Wish From The Stars
-      </div>
-
-      <h2>
-        Wishes For <span class="gold-text">Your Future</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        A little inspiration for your beautiful journey ahead.
-      </p>
-
-    </div>
-
-    <div class="wish-box">
-
-      <div id="wish-text">
-        May your future shine brighter than every star in the sky.
-      </div>
-
-      <div style="margin-top:30px">
-
-        <button class="gold-button" onclick="newWish()">
-          ANOTHER WISH ✦
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CAKE -->
-<section id="cake">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        Make A Wish
-      </div>
-
-      <h2>
-        A Cake Just <span class="gold-text">For You</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        One candle. One wish. A thousand beautiful possibilities.
-      </p>
-
-    </div>
-
-    <div class="cake-area">
-
-      <div class="cake">
-
+      <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the birthday candle">
         <div class="cake-base"></div>
         <div class="cake-top"></div>
         <div class="candle"></div>
-        <div class="flame" id="flame"></div>
-
+        <div class="flame"></div>
       </div>
 
-      <button class="gold-button" onclick="blowCandle()">
-        BLOW THE CANDLE ✦
-      </button>
+      <p class="cake-message" id="cakeMessage">Make a wish, Bhai ✨</p>
 
-      <p id="wish-message"></p>
+      <button class="gold-button" id="wishButton">Make a Wish</button>
+    </section>
 
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FINAL GIFT -->
-<section id="final">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        The Grand Finale
-      </div>
-
-      <h2>
-        One Last <span class="gold-text">Surprise</span>
-      </h2>
-
-      <div class="gold-line"></div>
-
-      <p>
-        This one is a little more special than the rest.
+    <!-- FINAL SURPRISE -->
+    <section class="final-section center" id="final">
+      <p class="eyebrow">One last surprise</p>
+      <h2 class="section-title">Something <span class="gold">Special</span></h2>
+      <p class="section-subtitle">
+        The final surprise is waiting. It opens when all twelve gifts have been discovered.
       </p>
 
-    </div>
+      <div class="final-lock">
+        <div class="lock-icon" id="lockIcon">🔒</div>
+        <h3 id="finalTitle">A Surprise Is Waiting</h3>
+        <p id="finalDescription">
+          Open all 12 gifts above to unlock this final birthday message.
+        </p>
 
-    <div class="final-gift">
+        <button class="gold-button" id="unlockButton" disabled>
+          Unlock the Surprise
+        </button>
 
-      <div class="big-icon">🎁</div>
-
-      <h2 class="gold-text">
-        For You, Bimal.
-      </h2>
-
-      <p>
-        Twelve gifts. Countless memories.
-        One bond that means more than anything.
-      </p>
-
-      <button
-        class="gold-button filled"
-        id="final-button"
-        onclick="openFinalGift()"
-        disabled>
-
-        OPEN YOUR FINAL GIFT
-
-      </button>
-
-      <div id="final-message">
-
-        Happy Birthday, Bimal Bhai! ❤️
-
-        <br><br>
-
-        <span style="font-size:20px;color:#c6b48c">
-
-          You will always be one of the most special people
-          in my life.
-
-          May your smile never fade, your dreams never stop,
-          and your heart always find happiness.
-
-          <br><br>
-
-          No matter where life takes us,
-          we will always be brothers.
-
-          <br><br>
-
-          Love you forever.
-
-        </span>
-
+        <div id="finalReveal">
+          <h2>Happy Birthday, Bhai!</h2>
+          <p>
+            You are not just my big brother — you are a part of my heart,
+            my strength, and one of the greatest blessings in my life.
+            <br><br>
+            May your life always be filled with happiness, peace, success,
+            love, and beautiful memories.
+            <br><br>
+            Whatever happens, wherever life takes us,
+            I will always be grateful to have you as my brother.
+            <br><br>
+            This little website is just a small reminder of a very big feeling:
+            <br><br>
+            <strong class="gold">You are loved more than you know. ❤️</strong>
+          </p>
+        </div>
       </div>
+    </section>
 
+  </main>
+
+  <footer>
+    Made with <span>♥</span> for Bimal Bhai · 05 November 2026
+  </footer>
+
+  <!-- GIFT MODAL -->
+  <div class="modal" id="giftModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close gift">×</button>
+      <div class="modal-icon" id="modalIcon">🎁</div>
+      <h2 id="modalTitle">A Special Gift</h2>
+      <p id="modalMessage"></p>
     </div>
-
   </div>
 
-</section>
-
-<footer>
-
-  MADE WITH <span>LOVE</span> FOR BIMAl BHAI
-
-  <br>
-
-  NOVEMBER 05 · 2026
-
-  <br><br>
-
-  A LITTLE BROTHER'S BIGGEST GIFT
-
-</footer>
-
-<!-- GIFT MODAL -->
-<div class="modal" id="gift-modal">
-
-  <div class="modal-content">
-
-    <button class="modal-close" onclick="closeModal()">
-      ×
-    </button>
-
-    <div class="modal-icon" id="modal-icon">
-      🎁
-    </div>
-
-    <div class="eyebrow" id="modal-eyebrow">
-      A LITTLE SURPRISE
-    </div>
-
-    <h2 id="modal-title">
-      Your Gift
-    </h2>
-
-    <div class="gold-line"></div>
-
-    <p id="modal-text"></p>
-
-    <br>
-
-    <button class="gold-button" onclick="closeModal()">
-      KEEP THIS GIFT ✦
-    </button>
-
-  </div>
-
-</div>
-
-<script>
-
-/* =====================================
-   BIRTHDAY CONFIGURATION
-===================================== */
-
-const birthday = new Date(
-  "2026-11-05T00:00:00+05:30"
-).getTime();
-
-
-/* =====================================
-   FLOATING STARS, HEARTS & SPARKLES
-===================================== */
-
-function createMagic() {
-
-  const layer = document.getElementById("magic-layer");
-
-  const symbols = [
-    "✦", "✧", "⋆", "✩", "♡", "♥",
-    "✨", "✶", "✷", "⋆", "✧", "❤"
-  ];
-
-  for (let i = 0; i < 65; i++) {
-
-    const item = document.createElement("span");
-
-    item.className = "magic";
-
-    item.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
-
-    item.style.left = Math.random() * 100 + "%";
-
-    item.style.fontSize =
-      (9 + Math.random() * 19) + "px";
-
-    item.style.animationDuration =
-      (10 + Math.random() * 22) + "s";
-
-    item.style.animationDelay =
-      (Math.random() * 20) + "s";
-
-    item.style.color =
-      Math.random() > .5 ? "#d8b56a" : "#fff0be";
-
-    layer.appendChild(item);
-
-  }
-
-}
-
-createMagic();
-
-
-/* =====================================
-   MOUSE SPARKLE EFFECT
-===================================== */
-
-let lastSparkle = 0;
-
-document.addEventListener("pointermove", function(event) {
-
-  const now = Date.now();
-
-  if (now - lastSparkle < 100) {
-    return;
-  }
-
-  lastSparkle = now;
-
-  const sparkle = document.createElement("span");
-
-  sparkle.className = "cursor-sparkle";
-
-  sparkle.textContent =
-    Math.random() > .5 ? "✦" : "✧";
-
-  sparkle.style.left = event.clientX + "px";
-
-  sparkle.style.top = event.clientY + "px";
-
-  sparkle.style.fontSize =
-    (8 + Math.random() * 10) + "px";
-
-  document.body.appendChild(sparkle);
-
-  setTimeout(() => sparkle.remove(), 1000);
-
-});
-
-
-/* =====================================
-   COUNTDOWN
-===================================== */
-
-function updateCountdown() {
-
-  const difference = birthday - Date.now();
-
-  const message =
-    document.getElementById("countdown-message");
-
-  if (difference <= 0) {
-
-    document.getElementById("days").textContent = "00";
-
-    document.getElementById("hours").textContent = "00";
-
-    document.getElementById("minutes").textContent = "00";
-
-    document.getElementById("seconds").textContent = "00";
-
-    message.textContent =
-      "Happy Birthday, Bimal Bhai! ✨";
-
-    return;
-
-  }
-
-  const days = Math.floor(
-    difference / (1000 * 60 * 60 * 24)
-  );
-
-  const hours = Math.floor(
-    (difference / (1000 * 60 * 60)) % 24
-  );
-
-  const minutes = Math.floor(
-    (difference / (1000 * 60)) % 60
-  );
-
-  const seconds = Math.floor(
-    (difference / 1000) % 60
-  );
-
-  document.getElementById("days").textContent =
-    String(days).padStart(2, "0");
-
-  document.getElementById("hours").textContent =
-    String(hours).padStart(2, "0");
-
-  document.getElementById("minutes").textContent =
-    String(minutes).padStart(2, "0");
-
-  document.getElementById("seconds").textContent =
-    String(seconds).padStart(2, "0");
-
-  message.textContent =
-    "A beautiful day is getting closer.";
-
-}
-
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
-
-
-/* =====================================
-   MUSIC SYSTEM
-===================================== */
-
-const songBefore =
-  document.getElementById("song-before");
-
-const songAfter =
-  document.getElementById("song-after");
-
-const musicButton =
-  document.getElementById("music-button");
-
-const musicTitle =
-  document.getElementById("music-title");
-
-const musicStatus =
-  document.getElementById("music-status");
-
-const musicDescription =
-  document.getElementById("music-description");
-
-const musicDisc =
-  document.getElementById("music-disc");
-
-const musicError =
-  document.getElementById("music-error");
-
-const musicSeek =
-  document.getElementById("music-seek");
-
-let activeSong = null;
-
-let birthdaySongUnlocked = false;
-
-let musicRequested = false;
-
-let changingSong = false;
-
-
-// Format seconds as minutes:seconds.
-function formatTime(seconds) {
-
-  if (!Number.isFinite(seconds)) {
-    return "0:00";
-  }
-
-  const mins = Math.floor(seconds / 60);
-
-  const secs = Math.floor(seconds % 60);
-
-  return mins + ":" + String(secs).padStart(2, "0");
-
-}
-
-
-// Show a useful error if an MP3 fails to load.
-function showMusicError(audio) {
-
-  const filename =
-    audio === songBefore ? "Song11.mp3" : "Song22.mp3";
-
-  musicError.innerHTML =
-    "Could not load <strong>" + filename + "</strong>. " +
-    "Please check that it is uploaded to the same GitHub " +
-    "repository folder as index.html. " +
-    "<a href='" + filename + "' target='_blank'>" +
-    "Test the MP3 file</a>.";
-
-}
-
-
-// Listen for audio loading errors.
-songBefore.addEventListener("error", function() {
-
-  showMusicError(songBefore);
-
-});
-
-songAfter.addEventListener("error", function() {
-
-  showMusicError(songAfter);
-
-});
-
-
-// Listen for successful audio loading.
-songBefore.addEventListener("canplay", function() {
-
-  if (activeSong === songBefore) {
-    musicError.textContent = "";
-  }
-
-});
-
-songAfter.addEventListener("canplay", function() {
-
-  if (activeSong === songAfter) {
-    musicError.textContent = "";
-  }
-
-});
-
-
-// Set the currently unlocked song.
-function checkBirthdayMusic() {
-
-  const birthdayStarted = Date.now() >= birthday;
-
-  if (birthdayStarted === birthdaySongUnlocked) {
-    return;
-  }
-
-  birthdaySongUnlocked = birthdayStarted;
-
-  const previousSong = activeSong;
-
-  const wasPlaying =
-    previousSong && !previousSong.paused;
-
-  changingSong = true;
-
-  if (previousSong) {
-
-    previousSong.pause();
-
-    previousSong.currentTime = 0;
-
-  }
-
-  if (birthdayStarted) {
-
-    activeSong = songAfter;
-
-    musicTitle.textContent = "The Birthday Song";
-
-    musicStatus.textContent =
-      "Unlocked! Happy Birthday, Bimal Bhai!";
-
-    musicDescription.textContent =
-      "The birthday has arrived. Your special song is now unlocked.";
-
-  } else {
-
-    activeSong = songBefore;
-
-    musicTitle.textContent = "The Countdown Song";
-
-    musicStatus.textContent =
-      "A special melody while we wait.";
-
-    musicDescription.textContent =
-      "Your birthday surprise is getting closer.";
-
-  }
-
-  musicDisc.classList.remove("playing");
-
-  musicButton.textContent = "PLAY";
-
-  changingSong = false;
-
-  // If the previous song was playing, attempt to continue
-  // with the newly unlocked song.
-  if (wasPlaying && musicRequested) {
-
-    playCurrentSong();
-
-  }
-
-}
-
-
-// Play the currently unlocked song.
-async function playCurrentSong() {
-
-  checkBirthdayMusic();
-
-  if (!activeSong) {
-    return;
-  }
-
-  musicRequested = true;
-
-  musicError.textContent = "";
-
-  try {
-
-    await activeSong.play();
-
-    musicButton.textContent = "PAUSE";
-
-    musicDisc.classList.add("playing");
-
-    musicStatus.textContent =
-      "Now playing your special song.";
-
-  } catch (error) {
-
-    musicButton.textContent = "PLAY";
-
-    musicDisc.classList.remove("playing");
-
-    musicStatus.textContent =
-      "Tap Play to start your music.";
-
-    if (activeSong.error) {
-
-      showMusicError(activeSong);
-
-    } else {
-
-      musicError.textContent =
-        "Your browser blocked automatic playback. " +
-        "Tap PLAY to start the song.";
-
-    }
-
-  }
-
-}
-
-
-// Play or pause.
-function toggleMusic() {
-
-  checkBirthdayMusic();
-
-  if (!activeSong) {
-    return;
-  }
-
-  if (activeSong.paused) {
-
-    playCurrentSong();
-
-  } else {
-
-    activeSong.pause();
-
-    musicButton.textContent = "PLAY";
-
-    musicDisc.classList.remove("playing");
-
-    musicStatus.textContent =
-      "Music paused.";
-
-  }
-
-}
-
-
-// Keep the player controls synchronized.
-function syncMusicControls() {
-
-  if (!activeSong) {
-    return;
-  }
-
-  if (activeSong.paused) {
-
-    musicButton.textContent = "PLAY";
-
-    musicDisc.classList.remove("playing");
-
-  } else {
-
-    musicButton.textContent = "PAUSE";
-
-    musicDisc.classList.add("playing");
-
-  }
-
-}
-
-
-// Update progress.
-function updateMusicProgress() {
-
-  if (!activeSong) {
-    return;
-  }
-
-  const current =
-    document.getElementById("music-current");
-
-  const duration =
-    document.getElementById("music-duration");
-
-  if (Number.isFinite(activeSong.duration)) {
-
-    musicSeek.value =
-      (activeSong.currentTime / activeSong.duration) * 100;
-
-    duration.textContent =
-      formatTime(activeSong.duration);
-
-  }
-
-  current.textContent =
-    formatTime(activeSong.currentTime);
-
-}
-
-
-songBefore.addEventListener("timeupdate", updateMusicProgress);
-
-songAfter.addEventListener("timeupdate", updateMusicProgress);
-
-songBefore.addEventListener("play", syncMusicControls);
-
-songBefore.addEventListener("pause", syncMusicControls);
-
-songAfter.addEventListener("play", syncMusicControls);
-
-songAfter.addEventListener("pause", syncMusicControls);
-
-
-// Allow seeking.
-musicSeek.addEventListener("input", function() {
-
-  if (
-    activeSong &&
-    Number.isFinite(activeSong.duration)
-  ) {
-
-    activeSong.currentTime =
-      (Number(musicSeek.value) / 100) *
-      activeSong.duration;
-
-  }
-
-});
-
-
-// Check immediately and every second.
-checkBirthdayMusic();
-
-setInterval(checkBirthdayMusic, 1000);
-
-
-/* =====================================
-   12 INTERACTIVE GIFTS
-===================================== */
-
-const gifts = [
-
-  {
-    icon: "💌",
-    title: "A Letter",
-    subtitle: "Words from my heart",
-    message:
-      "Dear Bimal Bhai,\n\n" +
-      "I don't always express my feelings, but I hope you know " +
-      "how much you mean to me. Having you as my big brother " +
-      "is something I will always be grateful for.\n\n" +
-      "You are loved more than you know. ❤️"
-  },
-
-  {
-    icon: "🌟",
-    title: "My Respect",
-    subtitle: "For the person you are",
-    message:
-      "One of the things I admire most about you is the person " +
-      "you are becoming.\n\n" +
-      "Your strength, your efforts, your determination, " +
-      "and the way you keep moving forward inspire me.\n\n" +
-      "I will always look up to you, Bhai."
-  },
-
-  {
-    icon: "🎂",
-    title: "Birthday Wish",
-    subtitle: "A wish for your future",
-    message:
-      "May this new year of your life bring you peace, " +
-      "happiness, success, good health, and countless " +
-      "reasons to smile.\n\n" +
-      "May every dream you hold close become a beautiful reality."
-  },
-
-  {
-    icon: "🤝",
-    title: "Brotherhood",
-    subtitle: "A bond that never breaks",
-    message:
-      "Life may change. People may change. " +
-      "Our paths may take us in different directions.\n\n" +
-      "But one thing will always remain the same — " +
-      "you are my brother, and I will always be there for you."
-  },
-
-  {
-    icon: "🏆",
-    title: "Your Success",
-    subtitle: "You deserve the best",
-    message:
-      "I hope you achieve everything you have ever worked for.\n\n" +
-      "I hope your hard work pays off, your sacrifices " +
-      "bring beautiful results, and your future becomes " +
-      "everything you have dreamed of.\n\n" +
-      "I will always be proud of you."
-  },
-
-  {
-    icon: "📸",
-    title: "Our Memories",
-    subtitle: "Moments to treasure",
-    message:
-      "Some of the best memories in life are the simplest ones.\n\n" +
-      "The laughs, the little arguments, the silly moments, " +
-      "the conversations, and everything in between.\n\n" +
-      "I hope we make a million more memories together."
-  },
-
-  {
-    icon: "🛡️",
-    title: "My Promise",
-    subtitle: "Always by your side",
-    message:
-      "I promise to support you whenever you need me.\n\n" +
-      "I promise to celebrate your happiness, stand beside " +
-      "you during difficult times, and never forget " +
-      "the bond we share.\n\n" +
-      "You will never have to face everything alone."
-  },
-
-  {
-    icon: "🌍",
-    title: "Your Dreams",
-    subtitle: "Dream without limits",
-    message:
-      "Never stop dreaming big.\n\n" +
-      "Never let fear decide your future.\n\n" +
-      "You have so much potential, and I hope you always " +
-      "believe in yourself as much as I believe in you."
-  },
-
-  {
-    icon: "❤️",
-    title: "My Gratitude",
-    subtitle: "Thank you, Bhai",
-    message:
-      "Thank you for being a part of my life.\n\n" +
-      "Thank you for the lessons, the support, the memories, " +
-      "and the little things that you may not even realise " +
-      "mean so much to me.\n\n" +
-      "I am truly lucky to have you."
-  },
-
-  {
-    icon: "☀️",
-    title: "Happiness",
-    subtitle: "A brighter tomorrow",
-    message:
-      "I hope your days are filled with laughter.\n\n" +
-      "I hope your heart finds peace.\n\n" +
-      "I hope you always have people around you " +
-      "who genuinely care about you.\n\n" +
-      "You deserve a beautiful life."
-  },
-
-  {
-    icon: "👑",
-    title: "My Hero",
-    subtitle: "A brother like no other",
-    message:
-      "You don't need to be perfect to be someone I admire.\n\n" +
-      "You just need to be yourself.\n\n" +
-      "And that is exactly why you will always have " +
-      "a special place in my heart."
-  },
-
-  {
-    icon: "🎁",
-    title: "The Best Gift",
-    subtitle: "Having you as my brother",
-    message:
-      "Out of all the gifts I could ever receive in life, " +
-      "having you as my big brother is one of the greatest.\n\n" +
-      "No expensive gift could ever replace that.\n\n" +
-      "Happy Birthday, Bimal Bhai. ❤️"
-  }
-
-];
-
-
-const giftGrid =
-  document.getElementById("gifts-grid");
-
-const openedGifts = new Set();
-
-
-function createGifts() {
-
-  gifts.forEach((gift, index) => {
-
-    const card = document.createElement("button");
-
-    card.type = "button";
-
-    card.className = "gift-card";
-
-    card.innerHTML = `
-
-      <div class="gift-number">
-        GIFT ${String(index + 1).padStart(2, "0")}
-      </div>
-
-      <div class="gift-icon">
-        ${gift.icon}
-      </div>
-
-      <h3>${gift.title}</h3>
-
-      <p>${gift.subtitle}</p>
-
-    `;
-
-    card.addEventListener("click", function() {
-
-      openGift(index, card);
-
+  <script>
+    /* -----------------------------------------
+       MUSIC PLAYER
+       Only Song22.mp3 is used on this website.
+    ----------------------------------------- */
+
+    const birthdaySong = document.getElementById("birthdaySong");
+    const musicToggle = document.getElementById("musicToggle");
+
+    musicToggle.addEventListener("click", async () => {
+      if (birthdaySong.paused) {
+        try {
+          await birthdaySong.play();
+          musicToggle.textContent = "Ⅱ";
+        } catch (error) {
+          musicToggle.textContent = "▶";
+          alert("Please check that Song22.mp3 is in the same folder as index.html.");
+        }
+      } else {
+        birthdaySong.pause();
+        musicToggle.textContent = "▶";
+      }
     });
 
-    giftGrid.appendChild(card);
+    birthdaySong.addEventListener("play", () => {
+      musicToggle.textContent = "Ⅱ";
+    });
 
-  });
+    birthdaySong.addEventListener("pause", () => {
+      musicToggle.textContent = "▶";
+    });
 
-}
+    /* -----------------------------------------
+       FLOATING HEARTS, STARS & SPARKLES
+    ----------------------------------------- */
 
+    const effects = document.getElementById("effects");
 
-function openGift(index, card) {
+    const particleSymbols = ["✦", "✧", "♡", "♥", "⋆", "✨", "✶"];
+    const particleColors = ["#d8b56d", "#f7e5b5", "#b99550", "#fff0c8"];
 
-  const gift = gifts[index];
+    function createParticle() {
+      const particle = document.createElement("span");
+      particle.className = "particle";
 
-  openedGifts.add(index);
+      particle.textContent =
+        particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
 
-  card.classList.add("opened");
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.fontSize = (Math.random() * 16 + 8) + "px";
+      particle.style.color =
+        particleColors[Math.floor(Math.random() * particleColors.length)];
 
-  document.getElementById("modal-icon").textContent =
-    gift.icon;
+      const duration = Math.random() * 9 + 8;
+      particle.style.animationDuration = duration + "s";
 
-  document.getElementById("modal-title").textContent =
-    gift.title;
+      effects.appendChild(particle);
 
-  document.getElementById("modal-eyebrow").textContent =
-    "GIFT " + String(index + 1).padStart(2, "0") +
-    " · A LITTLE SURPRISE";
-
-  document.getElementById("modal-text").textContent =
-    gift.message;
-
-  document.getElementById("gift-modal")
-    .classList.add("show");
-
-  updateGiftProgress();
-
-  createConfetti(25);
-
-}
-
-
-function closeModal() {
-
-  document.getElementById("gift-modal")
-    .classList.remove("show");
-
-}
-
-
-document.getElementById("gift-modal")
-  .addEventListener("click", function(event) {
-
-    if (event.target === this) {
-      closeModal();
+      setTimeout(() => {
+        particle.remove();
+      }, duration * 1000);
     }
 
-  });
-
-
-function updateGiftProgress() {
-
-  const count = openedGifts.size;
-
-  document.getElementById("opened-count").textContent =
-    count;
-
-  document.getElementById("progress-fill").style.width =
-    (count / gifts.length * 100) + "%";
-
-  if (count === gifts.length) {
-
-    document.getElementById("final-button").disabled = false;
-
-    document.getElementById("final-button").textContent =
-      "UNLOCK YOUR FINAL GIFT ✦";
-
-  }
-
-}
-
-
-createGifts();
-
-
-/* =====================================
-   BIRTHDAY CAKE
-===================================== */
-
-let candleBlown = false;
-
-
-function blowCandle() {
-
-  const flame =
-    document.getElementById("flame");
-
-  const message =
-    document.getElementById("wish-message");
-
-  if (!candleBlown) {
-
-    flame.style.display = "none";
-
-    message.textContent =
-      "May all your wishes come true, Bimal Bhai. ❤️";
-
-    candleBlown = true;
-
-    createConfetti(100);
-
-  } else {
-
-    flame.style.display = "block";
-
-    message.textContent =
-      "Make another beautiful wish!";
-
-    candleBlown = false;
-
-  }
-
-}
-
-
-/* =====================================
-   WISH GENERATOR
-===================================== */
-
-const wishes = [
-
-  "May your future shine brighter than every star in the sky.",
-
-  "May every dream you hold become a beautiful reality.",
-
-  "May happiness find you in every little moment.",
-
-  "May your strength grow, your heart stay kind, and your dreams soar.",
-
-  "May your life be filled with love, laughter, and endless success.",
-
-  "May every new chapter bring something beautiful.",
-
-  "May you always have the courage to chase your dreams.",
-
-  "May peace, prosperity, and happiness follow you everywhere.",
-
-  "May your smile never fade and your heart never lose hope.",
-
-  "May the coming year be your most beautiful one yet."
-
-];
-
-
-function newWish() {
-
-  const random =
-    Math.floor(Math.random() * wishes.length);
-
-  document.getElementById("wish-text").textContent =
-    wishes[random];
-
-  createConfetti(15);
-
-}
-
-
-/* =====================================
-   FINAL GIFT
-===================================== */
-
-function openFinalGift() {
-
-  if (openedGifts.size !== gifts.length) {
-
-    alert("Open all 12 gifts first, Bimal Bhai!");
-
-    return;
-
-  }
-
-  document.getElementById("final-message").style.display =
-    "block";
-
-  document.getElementById("final-button").style.display =
-    "none";
-
-  createConfetti(180);
-
-}
-
-
-/* =====================================
-   GOLDEN CONFETTI
-===================================== */
-
-function createConfetti(amount) {
-
-  const colors = [
-    "#d8b56a",
-    "#f8e7b0",
-    "#ffffff",
-    "#b58a42",
-    "#f4d58d"
-  ];
-
-  for (let i = 0; i < amount; i++) {
-
-    const confetti =
-      document.createElement("div");
-
-    confetti.style.position = "fixed";
-
-    confetti.style.left =
-      Math.random() * 100 + "vw";
-
-    confetti.style.top = "-20px";
-
-    confetti.style.width =
-      (4 + Math.random() * 6) + "px";
-
-    confetti.style.height =
-      (6 + Math.random() * 10) + "px";
-
-    confetti.style.background =
-      colors[Math.floor(Math.random() * colors.length)];
-
-    confetti.style.zIndex = "200";
-
-    confetti.style.pointerEvents = "none";
-
-    confetti.style.borderRadius = "2px";
-
-    document.body.appendChild(confetti);
-
-    const duration =
-      2500 + Math.random() * 3500;
-
-    const animation = confetti.animate([
-
-      {
-        transform: "translateY(0) rotate(0deg)",
-        opacity: 1
-      },
-
-      {
-        transform:
-          "translateY(" +
-          (window.innerHeight + 100) +
-          "px) rotate(" +
-          (360 + Math.random() * 720) +
-          "deg)",
-
-        opacity: 0.2
-
+    for (let i = 0; i < 25; i++) {
+      setTimeout(createParticle, i * 250);
+    }
+
+    setInterval(createParticle, 450);
+
+    /* -----------------------------------------
+       COUNTDOWN
+       Birthday: November 5, 2026
+       India Standard Time: UTC+05:30
+    ----------------------------------------- */
+
+    const birthdayDate = new Date("2026-11-05T00:00:00+05:30").getTime();
+
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+    const countdownMessage = document.getElementById("countdownMessage");
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = birthdayDate - now;
+
+      if (distance <= 0) {
+        daysElement.textContent = "00";
+        hoursElement.textContent = "00";
+        minutesElement.textContent = "00";
+        secondsElement.textContent = "00";
+
+        countdownMessage.textContent = "Happy Birthday, Bimal Bhai! 🎉";
+        return;
       }
 
-    ], {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
 
-      duration: duration,
+      daysElement.textContent = String(days).padStart(2, "0");
+      hoursElement.textContent = String(hours).padStart(2, "0");
+      minutesElement.textContent = String(minutes).padStart(2, "0");
+      secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
 
-      easing: "ease-in"
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
+    /* -----------------------------------------
+       12 INTERACTIVE GIFTS
+    ----------------------------------------- */
+
+    const gifts = [
+      {
+        icon: "💛",
+        title: "A Wish",
+        short: "A wish from my heart",
+        message:
+          "May your life be filled with endless happiness, good health, peace, and success. May every new day bring you a reason to smile."
+      },
+      {
+        icon: "🌟",
+        title: "A Star",
+        short: "You deserve to shine",
+        message:
+          "You deserve every beautiful thing life has to offer. Keep shining in your own way, Bhai. The world is better with your light in it."
+      },
+      {
+        icon: "🤝",
+        title: "A Promise",
+        short: "Always by your side",
+        message:
+          "No matter where life takes us, you will always have someone who cares for you, believes in you, and wishes the very best for you."
+      },
+      {
+        icon: "📸",
+        title: "A Memory",
+        short: "Moments that stay forever",
+        message:
+          "Some memories never fade. They become a part of who we are. I hope we keep creating beautiful memories together for many years to come."
+      },
+      {
+        icon: "🛡️",
+        title: "A Blessing",
+        short: "For your strength",
+        message:
+          "May you always have the courage to face every challenge, the wisdom to choose your path, and the strength to keep moving forward."
+      },
+      {
+        icon: "🌹",
+        title: "A Thank You",
+        short: "For everything you do",
+        message:
+          "Thank you for being you. Thank you for your care, your support, your guidance, and all the little things that make such a big difference."
+      },
+      {
+        icon: "☀️",
+        title: "A Smile",
+        short: "A little happiness",
+        message:
+          "I hope this birthday brings you a thousand reasons to smile. And even on ordinary days, I hope happiness finds its way to you."
+      },
+      {
+        icon: "🎯",
+        title: "A Dream",
+        short: "May your dreams come true",
+        message:
+          "May every dream you have been working toward become reality. May your efforts be rewarded and your future be brighter than you imagine."
+      },
+      {
+        icon: "🕊️",
+        title: "Peace",
+        short: "A peaceful year ahead",
+        message:
+          "May your heart always find peace, your mind find clarity, and your life find the balance and happiness you truly deserve."
+      },
+      {
+        icon: "💎",
+        title: "A Reminder",
+        short: "You are precious",
+        message:
+          "Never forget how valuable you are. You make a difference in the lives of the people around you, especially in mine."
+      },
+      {
+        icon: "🎂",
+        title: "A Celebration",
+        short: "Today is all about you",
+        message:
+          "Today is a celebration of your life, your kindness, your strength, and all the wonderful things that make you the person you are."
+      },
+      {
+        icon: "❤️",
+        title: "My Love",
+        short: "The most important gift",
+        message:
+          "The best gift I can give you is a simple truth: I love you, Bhai. I am proud of you, grateful for you, and always wishing the best for you."
+      }
+    ];
+
+    const giftGrid = document.getElementById("giftGrid");
+    const giftCount = document.getElementById("giftCount");
+    const progressFill = document.getElementById("progressFill");
+
+    const giftModal = document.getElementById("giftModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMessage = document.getElementById("modalMessage");
+
+    const openedGifts = new Set();
+
+    function renderGifts() {
+      giftGrid.innerHTML = "";
+
+      gifts.forEach((gift, index) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "gift-card";
+        card.setAttribute("aria-label", "Open gift " + (index + 1));
+
+        if (openedGifts.has(index)) {
+          card.classList.add("opened");
+        }
+
+        card.innerHTML = `
+          <div class="gift-icon">${gift.icon}</div>
+          <h3>${gift.title}</h3>
+          <p>${gift.short}</p>
+          <span class="gift-status">
+            ${openedGifts.has(index) ? "✦ Discovered" : "Tap to open"}
+          </span>
+        `;
+
+        card.addEventListener("click", () => openGift(index));
+        giftGrid.appendChild(card);
+      });
+    }
+
+    function openGift(index) {
+      const gift = gifts[index];
+
+      openedGifts.add(index);
+
+      modalIcon.textContent = gift.icon;
+      modalTitle.textContent = gift.title;
+      modalMessage.textContent = gift.message;
+
+      giftModal.classList.add("active");
+
+      updateGiftProgress();
+      renderGifts();
+    }
+
+    function updateGiftProgress() {
+      const count = openedGifts.size;
+      const percentage = (count / gifts.length) * 100;
+
+      giftCount.textContent = count + " / " + gifts.length;
+      progressFill.style.width = percentage + "%";
+
+      const unlockButton = document.getElementById("unlockButton");
+      const lockIcon = document.getElementById("lockIcon");
+      const finalTitle = document.getElementById("finalTitle");
+      const finalDescription = document.getElementById("finalDescription");
+
+      if (count === gifts.length) {
+        unlockButton.disabled = false;
+        unlockButton.textContent = "Open Your Final Surprise";
+        unlockButton.style.opacity = "1";
+        unlockButton.style.cursor = "pointer";
+
+        lockIcon.textContent = "🔓";
+        finalTitle.textContent = "All Gifts Discovered!";
+        finalDescription.textContent =
+          "You found every little surprise. Your final birthday message is ready.";
+      } else {
+        unlockButton.disabled = true;
+        unlockButton.textContent = "Unlock the Surprise";
+        unlockButton.style.opacity = "0.45";
+        unlockButton.style.cursor = "not-allowed";
+
+        lockIcon.textContent = "🔒";
+        finalTitle.textContent = "A Surprise Is Waiting";
+        finalDescription.textContent =
+          "Open all 12 gifts above to unlock this final birthday message.";
+      }
+    }
+
+    function closeGiftModal() {
+      giftModal.classList.remove("active");
+    }
+
+    modalClose.addEventListener("click", closeGiftModal);
+
+    giftModal.addEventListener("click", (event) => {
+      if (event.target === giftModal) {
+        closeGiftModal();
+      }
     });
 
-    animation.onfinish = () => confetti.remove();
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeGiftModal();
+      }
+    });
 
-  }
+    renderGifts();
+    updateGiftProgress();
 
-}
+    /* -----------------------------------------
+       BIRTHDAY CAKE & WISH
+    ----------------------------------------- */
 
+    const cake = document.getElementById("cake");
+    const cakeMessage = document.getElementById("cakeMessage");
+    const wishButton = document.getElementById("wishButton");
 
-/* =====================================
-   INITIALIZE
-===================================== */
+    let candleBlown = false;
 
-checkBirthdayMusic();
+    function blowCandle() {
+      if (candleBlown) {
+        cakeMessage.textContent = "Your wish is on its way, Bhai ❤️";
+        return;
+      }
 
-updateCountdown();
+      candleBlown = true;
+      cake.classList.add("blown");
 
-</script>
+      cakeMessage.textContent =
+        "May your wish come true. Happy Birthday, Bhai! ✨";
+
+      wishButton.textContent = "Wish Made ❤️";
+
+      for (let i = 0; i < 25; i++) {
+        setTimeout(createParticle, i * 60);
+      }
+    }
+
+    cake.addEventListener("click", blowCandle);
+
+    cake.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        blowCandle();
+      }
+    });
+
+    wishButton.addEventListener("click", blowCandle);
+
+    /* -----------------------------------------
+       FINAL SURPRISE UNLOCK
+    ----------------------------------------- */
+
+    const unlockButton = document.getElementById("unlockButton");
+    const finalReveal = document.getElementById("finalReveal");
+
+    unlockButton.addEventListener("click", () => {
+      if (openedGifts.size !== gifts.length) {
+        return;
+      }
+
+      finalReveal.classList.add("show");
+      unlockButton.textContent = "Surprise Unlocked ❤️";
+      unlockButton.disabled = true;
+
+      document.getElementById("final").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      for (let i = 0; i < 35; i++) {
+        setTimeout(createParticle, i * 80);
+      }
+    });
+  </script>
 
 </body>
 </html>
